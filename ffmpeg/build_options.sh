@@ -40,7 +40,7 @@ function configure_make_ffmpeg
     # check source
     if [ ! -d src/ffmpeg ]; then
         mkdir -p src
-        git clone https://git.ffmpeg.org/ffmpeg.git src/ffmpeg || exit 1
+        git clone https://github.com/FFmpeg/FFmpeg.git src/ffmpeg || exit 1
     fi
 
     # check gas-preprocessor
@@ -125,11 +125,13 @@ function configure_make_ffmpeg
         --enable-encoder=$FF_ENCODER_OPTIONS \
         --enable-muxer=$FF_MUXER_OPTIONS \
         `# External library support`\
+        --disable-vulkan \
         $FF_EXTERNAL_LIBRARY_OPTIONS_INTERNAL \
-        `# Toolchain options`\
+        --enable-pic \
         --arch=$FF_ARCH \
         --cc=$CC \
         --cxx=$CXX \
+        --strip=$STRIP \
         --enable-cross-compile \
         --target-os=$FF_TARGET_OS \
         --extra-cflags="$FF_CFLAGS" \

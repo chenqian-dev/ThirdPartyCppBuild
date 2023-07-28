@@ -21,7 +21,7 @@ if [[ -z ${NDK_PATH} ]]; then
 fi
 
 echo -e "############################################ android env ############################################"
-TOOLCHAIN=${NDK_PATH}/toolchains/llvm/prebuilt/darwin-x86_64
+TOOLCHAIN=${NDK_PATH}/toolchains/llvm/prebuilt/linux-x86_64
 
 echo -e "#\t ARCH=$ARCH"
 echo -e "#\t MIN_VERSION=$MIN_VERSION"
